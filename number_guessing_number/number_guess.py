@@ -3,6 +3,7 @@
 # Computer picks a random number between 0 and the number chosen by user
 # User guesses until correct
 # hints: too high / too low
+# Made by Rodrigo SG, January, 27th 2026
 import random
 
 def only_numbers():
@@ -43,4 +44,5 @@ while user_number != computer_number:
             else:
                 print('Too high, try again')
         else:
+
             print(f'Do not enter a number outsite the range! (0 - {number_range-1})')
