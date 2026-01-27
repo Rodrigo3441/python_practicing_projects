@@ -1,5 +1,6 @@
 from math import sqrt
 #check if a number is prime
+#made by Rodrigo SG, January, 26th 2026
 
 def is_prime(number):
     number_sqrt = int(sqrt(number))
@@ -35,5 +36,6 @@ while True:
             else:
                 print('this is not a prime number')
             break
+
 
 
