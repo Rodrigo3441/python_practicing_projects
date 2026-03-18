@@ -1,13 +1,17 @@
-# made by rodrigo sg march 9th 2026
+# Name: Sorting Algorithms
+# Last update: March 17th 2026
+# Author: Rodrigo SG
 
 import insertion_sort as ins_sort
 import select_sort as sel_sort
 import bubble_sort as bub_sort
-import time
+import quick_sort as quick_sort
+import merge_sort as merge_sort
+
 
 numbers = [17, 3, 29, 8, 14, 1, 25, 11, 30, 6, 19, 4, 27, 13, 2, 21, 9, 24, 7, 16, 28, 5, 22, 10, 18, 26, 12, 20, 15, 23]
 
-runs, comparisons, replacements, arr = bub_sort.bubble_sort(numbers)
+runs, comparisons, replacements, arr = merge_sort.merge_sort(numbers)
 
 
 print(f'Executions Number: {runs}')
