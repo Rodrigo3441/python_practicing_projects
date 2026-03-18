@@ -1,49 +1,59 @@
-numbers = [3,2,56,7,5,3,6,8,9,90,11,2,12,414,51,31,5,63,3,67,4,43,467,4,54,45,645,6]
+# Filename: merge_sort.py
+# Author: Rodrigo SG
+# Last Modification: March 17th 2026
 
-counter = 0
 
-def merge_sort(arr):
+class Stats:
+    def __init__(self):
+        self.comparisons = 0
+        self.runs = 0
+        self.replacements = 0
+
+stats = Stats()
+
+
+def separate_elements(arr: list) -> list:
+    """
+        This function will separate all elements of an array until 
+        every element becomes one single element
+    """
+    stats.comparisons += 1
     if len(arr) <= 1:
         return arr
-
-    mid = len(arr)//2
-    left = merge_sort(arr[:mid])
-    right = merge_sort(arr[mid:])
     
-    return merge(left, right)
+    mid = len(arr)//2
+    left = separate_elements(arr[:mid])
+    right = separate_elements(arr[mid:])
+
+    return merge_elements(left, right)
 
 
-def merge(left, right):
+def merge_elements(left: list, right: list) -> list:
+    """
+        This functions will put the values together while they are being compared
+        in order to find the lowest one and sort them
+    """
+
     result = []
     i = j = 0
+
     while i < len(left) and j < len(right):
-        global counter
-        counter += 1
+        stats.runs += 1
+        stats.comparisons += 1
         if left[i] < right[j]:
             result.append(left[i])
             i += 1
         else:
             result.append(right[j])
             j += 1
+
     result.extend(left[i:])
-    result.extend(right[j:])
-    print(result)
+    result.extend(right[j:])    
     return result
 
-
-def select_sort(arr):
-    size = len(arr)
-    for i in range(size-1):
-        lower = i
-        for j in range(i+1,size):
-            global counter
-            counter += 1
-            if arr[j] < arr[lower]:
-                lower = j
-        if lower != i:
-            arr[i], arr[lower] = arr[lower], arr[i]
-
-    return arr
-
-print(merge_sort(numbers))
-print(counter)
+def merge_sort(arr: list) -> tuple[int,int,int,list]:
+    """
+        This function will return the array sorted using merge sort together some stats about the running
+    """
+    result = separate_elements(arr)
+    return (stats.runs, stats.comparisons, stats.replacements, result)
