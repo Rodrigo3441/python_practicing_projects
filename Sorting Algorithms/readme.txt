@@ -1,4 +1,4 @@
-that's my project of doing a lot of sorting algorithms for learning data structures at the university
+<strong>that's my project of doing a lot of sorting algorithms for learning data structures at the university</strong>
 
 Bubble Sort
 An algorithm that repeatedly compares adjacent elements and swaps them if they are in the wrong order, gradually moving the larger elements to the end of the array.
